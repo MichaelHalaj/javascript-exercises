@@ -1,10 +1,12 @@
-const removeFromArray = function(array) {
-    for(let i = 1; i < arguments.length; i++){
-        const left = array.slice(0, arguments[i]-1);
-        const right = array.slice(arguments[i]);
-        array = left.concat(right);
-    }
-    return array;
+const removeFromArray = function(...args) {
+    const array = args[0];
+    const res = [];
+    array.forEach(item => {
+        if(!args.includes(item)){
+            res.push(item);
+        }
+    });
+    return res;
 };
 
 // Do not edit below this line
